@@ -39,6 +39,28 @@
 
   <p id="result"></p>
 
+ <h2 style="color: green;">Binomial Distribution Calculator</h2>
+  <form id="binomialForm">
+    <label for="trials">Number of Trials (n):</label>
+    <input type="number" id="trials" value="10">
+    <br><br>
+    <label for="probability">Probability of Success (p):</label>
+    <input type="number" id="probability" step="0.01" value="0.5">
+    <br><br>
+    <label for="kValue">X Value (k):</label>
+    <input type="number" id="kValue" value="5">
+    <br><br>
+    <label for="binomialType">Select Calculation:</label>
+    <select id="binomialType">
+      <option value="exact">Exact (P(X = k))</option>
+      <option value="lessEqual">Less than or equal (P(X ≤ k))</option>
+      <option value="greaterEqual">Greater than or equal (P(X ≥ k))</option>
+    </select>
+    <br><br>
+    <button type="button" id="calculateBinomial">Calculate</button>
+  </form>
+  <p id="binomialResult"></p>
+
   <script>
     // Error function approximation
    function erf(x) {
@@ -96,7 +118,44 @@ document.getElementById('calculateButton').addEventListener('click', () => {
 
   document.getElementById('result').innerText = result;
 });
+  function factorial(n) {
+      if (n === 0 || n === 1) return 1;
+      return n * factorial(n - 1);
+    }
 
+    function binomialCoefficient(n, k) {
+      return factorial(n) / (factorial(k) * factorial(n - k));
+    }
+
+    function binomialPDF(n, p, k) {
+      return binomialCoefficient(n, k) * Math.pow(p, k) * Math.pow(1 - p, n - k);
+    }
+
+    function binomialCDF(n, p, k) {
+      let cumulative = 0;
+      for (let i = 0; i <= k; i++) {
+        cumulative += binomialPDF(n, p, i);
+      }
+      return cumulative;
+    }
+
+    document.getElementById('calculateBinomial').addEventListener('click', () => {
+      const n = parseInt(document.getElementById('trials').value, 10);
+      const p = parseFloat(document.getElementById('probability').value);
+      const k = parseInt(document.getElementById('kValue').value, 10);
+      const binomialType = document.getElementById('binomialType').value;
+      let result = '';
+
+      if (binomialType === 'exact') {
+        result = `P(X = ${k}): ${binomialPDF(n, p, k).toFixed(4)}`;
+      } else if (binomialType === 'lessEqual') {
+        result = `P(X ≤ ${k}): ${binomialCDF(n, p, k).toFixed(4)}`;
+      } else if (binomialType === 'greaterEqual') {
+        result = `P(X ≥ ${k}): ${(1 - binomialCDF(n, p, k - 1)).toFixed(4)}`;
+      }
+
+      document.getElementById('binomialResult').innerText = result;
+    });
   </script>
 </body>
 </html>
