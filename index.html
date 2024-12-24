@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html>
- <head>
+<head>
   <title>Stats Calculator</title>
-   <link rel="stylesheet" type = "text/css" href = "style.css">
+  <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
   <h1>Stats Tools</h1>
- <br>
-    <h2 style="color: blue;">Normal Distribution Tail Calculator</h2>
-   <form id="cdfForm">
+  <br>
+  <h2 style="color: blue;">Normal Distribution Tail Calculator</h2>
+  <form id="cdfForm">
     <label for="mean">Mean (μ):</label>
     <input type="number" id="mean" value="0">
     <br><br>
@@ -36,7 +36,7 @@
     <br>
     <button type="button" id="calculateButton">Calculate</button>
   </form>
-  
+
   <p id="result"></p>
 
   <script>
@@ -89,5 +89,6 @@
 
       document.getElementById('result').innerText = result;
     });
+  </script>
 </body>
 </html>
