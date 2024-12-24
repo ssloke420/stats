@@ -8,7 +8,7 @@
   <h1>Stats Tools</h1>
  <br>
     <h2 style="color: blue;">Normal Distribution Tail Calculator</h2>
-  <form id="cdfForm">
+   <form id="cdfForm">
     <label for="mean">Mean (μ):</label>
     <input type="number" id="mean" value="0">
     <br><br>
@@ -34,7 +34,7 @@
       <input type="number" id="upper" value="1">
     </div>
     <br>
-    <button type="button" onclick="calculateCDF()">Calculate</button>
+    <button type="button" id="calculateButton">Calculate</button>
   </form>
   
   <p id="result"></p>
@@ -68,7 +68,7 @@
     });
 
     // Calculate and display the result
-    function calculateCDF() {
+    document.getElementById('calculateButton').addEventListener('click', () => {
       const mean = parseFloat(document.getElementById('mean').value);
       const stdDev = parseFloat(document.getElementById('stdDev').value);
       const tailType = document.getElementById('tailType').value;
@@ -88,6 +88,6 @@
       }
 
       document.getElementById('result').innerText = result;
-    }
+    });
 </body>
 </html>
