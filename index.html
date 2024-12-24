@@ -6,6 +6,88 @@
 </head>
 <body>
   <h1>Stats Tools</h1>
+ <br>
+    <h2 style="color: blue;">Normal Distribution Tail Calculator</h2>
+  <form id="cdfForm">
+    <label for="mean">Mean (μ):</label>
+    <input type="number" id="mean" value="0">
+    <br><br>
+    <label for="stdDev">Standard Deviation (σ):</label>
+    <input type="number" id="stdDev" value="1">
+    <br><br>
+    <label for="tailType">Select Calculation:</label>
+    <select id="tailType">
+      <option value="left">Left Tail (P(X ≤ x))</option>
+      <option value="right">Right Tail (P(X > x))</option>
+      <option value="between">Between (P(a ≤ X ≤ b))</option>
+    </select>
+    <br><br>
+    <div id="singleValueInput">
+      <label for="value">X Value:</label>
+      <input type="number" id="value" value="0">
+    </div>
+    <div id="betweenInputs" style="display: none;">
+      <label for="lower">Lower Value (a):</label>
+      <input type="number" id="lower" value="0">
+      <br><br>
+      <label for="upper">Upper Value (b):</label>
+      <input type="number" id="upper" value="1">
+    </div>
+    <br>
+    <button type="button" onclick="calculateCDF()">Calculate</button>
+  </form>
   
+  <p id="result"></p>
+
+  <script>
+    // Error function approximation
+    function erf(x) {
+      const a = 0.147;
+      const sign = x < 0 ? -1 : 1;
+      x = Math.abs(x);
+      const t = 1 / (1 + a * x);
+      const y = 1 - (((((1.408783 * t - 2.230269) * t + 1.937134) * t - 0.812987) * t + 0.170872) * t) * Math.exp(-x * x);
+      return sign * y;
+    }
+
+    // Normal CDF function
+    function normalCDF(x, mean, stdDev) {
+      return 0.5 * (1 + erf((x - mean) / (stdDev * Math.sqrt(2))));
+    }
+
+    // Update inputs based on tail type
+    document.getElementById('tailType').addEventListener('change', () => {
+      const tailType = document.getElementById('tailType').value;
+      if (tailType === 'between') {
+        document.getElementById('singleValueInput').style.display = 'none';
+        document.getElementById('betweenInputs').style.display = 'block';
+      } else {
+        document.getElementById('singleValueInput').style.display = 'block';
+        document.getElementById('betweenInputs').style.display = 'none';
+      }
+    });
+
+    // Calculate and display the result
+    function calculateCDF() {
+      const mean = parseFloat(document.getElementById('mean').value);
+      const stdDev = parseFloat(document.getElementById('stdDev').value);
+      const tailType = document.getElementById('tailType').value;
+      let result = '';
+
+      if (tailType === 'left') {
+        const value = parseFloat(document.getElementById('value').value);
+        result = `Left Tail Probability (P(X ≤ ${value})): ${normalCDF(value, mean, stdDev).toFixed(4)}`;
+      } else if (tailType === 'right') {
+        const value = parseFloat(document.getElementById('value').value);
+        result = `Right Tail Probability (P(X > ${value})): ${(1 - normalCDF(value, mean, stdDev)).toFixed(4)}`;
+      } else if (tailType === 'between') {
+        const lower = parseFloat(document.getElementById('lower').value);
+        const upper = parseFloat(document.getElementById('upper').value);
+        const betweenProbability = normalCDF(upper, mean, stdDev) - normalCDF(lower, mean, stdDev);
+        result = `Between Probability (P(${lower} ≤ X ≤ ${upper})): ${betweenProbability.toFixed(4)}`;
+      }
+
+      document.getElementById('result').innerText = result;
+    }
 </body>
 </html>
