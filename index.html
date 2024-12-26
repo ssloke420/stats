@@ -6,6 +6,8 @@
 </head>
 <body>
   <h1>Stats Tools</h1>
+  <p>An App by the one and only ssloke420.</p>
+  <p>Dedicated to the one and only Vincent Li.</p>
   <br>
   <h2 style="color: blue;">Normal Distribution Tail Calculator</h2>
   <form id="cdfForm">
@@ -78,7 +80,20 @@
     <button type="button" id="calculateGeometric">Calculate</button>
   </form>
   <p id="geometricResult"></p>
-
+  <h2 style="color: orange;">Z-Score Calculator</h2>
+  <form id="zScoreForm">
+    <label for="zValue">X Value:</label>
+    <input type="number" id="zValue" value="0">
+    <br><br>
+    <label for="zMean">Mean (μ):</label>
+    <input type="number" id="zMean" value="0">
+    <br><br>
+    <label for="zStdDev">Standard Deviation (σ):</label>
+    <input type="number" id="zStdDev" value="1">
+    <br><br>
+    <button type="button" id="calculateZScore">Calculate Z-Score</button>
+  </form>
+  <p id="zScoreResult"></p>
   <script>
     // Error function approximation
     function erf(x) {
@@ -193,6 +208,20 @@
 
       document.getElementById('geometricResult').innerText = result;
     });
+    document.getElementById('calculateZScore').addEventListener('click', () => {
+      const x = parseFloat(document.getElementById('zValue').value);
+      const mean = parseFloat(document.getElementById('zMean').value);
+      const stdDev = parseFloat(document.getElementById('zStdDev').value);
+
+      if (stdDev === 0) {
+        document.getElementById('zScoreResult').innerText = "Standard deviation cannot be 0.";
+        return;
+      }
+
+      const zScore = (x - mean) / stdDev;
+      document.getElementById('zScoreResult').innerText = `Z-Score: ${zScore.toFixed(4)}`;
+    });
+
   </script>
 </body>
 </html>
