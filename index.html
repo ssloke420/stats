@@ -9,9 +9,6 @@
   <p>An App by the one and only ssloke420.</p>
   <p>Dedicated to the one and only Vincent Li.</p>
   <br>
-   <div class="grid-container">
-    <!-- First Column -->
-    <div class="column">
       <h2 style="color: blue;">Normal Distribution Tail Calculator</h2>
       <form id="cdfForm">
         <label for="mean">Mean (μ):</label>
@@ -65,9 +62,6 @@
       </form>
       <p id="binomialResult"></p>
     </div>
-
-    <!-- Second Column -->
-    <div class="column">
       <h2 style="color: purple;">Geometric Distribution Calculator</h2>
       <form id="geometricForm">
         <label for="geoProbability">Probability of Success (p):</label>
@@ -87,7 +81,7 @@
       </form>
       <p id="geometricResult"></p>
 
-      <h2 style="color: teal;">Z-Score Calculator</h2>
+      <h2 style="color: orange;">Z-Score Calculator</h2>
       <form id="zScoreForm">
         <label for="zValue">X Value:</label>
         <input type="number" id="zValue" value="0">
@@ -101,8 +95,20 @@
         <button type="button" id="calculateZScore">Calculate Z-Score</button>
       </form>
       <p id="zScoreResult"></p>
-    </div>
-  </div>
+         <h2 style="color: teal;">One-Proportion Z-Interval</h2>
+        <form id="zIntervalForm">
+          <label for="sampleSize">Sample Size (n):</label>
+          <input type="number" id="sampleSize">
+          <br><br>
+          <label for="successes">Number of Successes:</label>
+          <input type="number" id="successes">
+          <br><br>
+          <label for="confidenceLevel">Confidence Level (e.g., 0.95):</label>
+          <input type="number" step="0.01" id="confidenceLevel">
+          <br><br>
+          <button type="button" id="calculateZInterval">Calculate</button>
+        </form>
+        <p id="zIntervalResult"></p>
   <script>
     // Error function approximation
     function erf(x) {
