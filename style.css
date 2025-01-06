@@ -37,9 +37,9 @@ button:hover {
 form label {
   font-weight: bold;
 }
-    .test-container {
-      display: none;
-    }
-    .test-container.active {
-      display: block;
-    }
+.test-container {
+  display: none;
+}
+.test-container.active {
+  display: block;
+}
