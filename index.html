@@ -9,91 +9,100 @@
   <p>An App by the one and only ssloke420.</p>
   <p>Dedicated to the one and only Vincent Li.</p>
   <br>
-  <h2 style="color: blue;">Normal Distribution Tail Calculator</h2>
-  <form id="cdfForm">
-    <label for="mean">Mean (μ):</label>
-    <input type="number" id="mean" value="0">
-    <br><br>
-    <label for="stdDev">Standard Deviation (σ):</label>
-    <input type="number" id="stdDev" value="1">
-    <br><br>
-    <label for="tailType">Select Calculation:</label>
-    <select id="tailType">
-      <option value="left">Left Tail (P(X ≤ x))</option>
-      <option value="right">Right Tail (P(X > x))</option>
-      <option value="between">Between (P(a ≤ X ≤ b))</option>
-    </select>
-    <br><br>
-    <div id="singleValueInput">
-      <label for="value">X Value:</label>
-      <input type="number" id="value" value="0">
-    </div>
-    <div id="betweenInputs" style="display: none;">
-      <label for="lower">Lower Value (a):</label>
-      <input type="number" id="lower" value="0">
-      <br><br>
-      <label for="upper">Upper Value (b):</label>
-      <input type="number" id="upper" value="1">
-    </div>
-    <br>
-    <button type="button" id="calculateButton">Calculate</button>
-  </form>
-  <p id="result"></p>
+   <div class="grid-container">
+    <!-- First Column -->
+    <div class="column">
+      <h2 style="color: blue;">Normal Distribution Tail Calculator</h2>
+      <form id="cdfForm">
+        <label for="mean">Mean (μ):</label>
+        <input type="number" id="mean" value="0">
+        <br><br>
+        <label for="stdDev">Standard Deviation (σ):</label>
+        <input type="number" id="stdDev" value="1">
+        <br><br>
+        <label for="tailType">Select Calculation:</label>
+        <select id="tailType">
+          <option value="left">Left Tail (P(X ≤ x))</option>
+          <option value="right">Right Tail (P(X > x))</option>
+          <option value="between">Between (P(a ≤ X ≤ b))</option>
+        </select>
+        <br><br>
+        <div id="singleValueInput">
+          <label for="value">X Value:</label>
+          <input type="number" id="value" value="0">
+        </div>
+        <div id="betweenInputs" style="display: none;">
+          <label for="lower">Lower Value (a):</label>
+          <input type="number" id="lower" value="0">
+          <br><br>
+          <label for="upper">Upper Value (b):</label>
+          <input type="number" id="upper" value="1">
+        </div>
+        <br>
+        <button type="button" id="calculateButton">Calculate</button>
+      </form>
+      <p id="result"></p>
 
-  <h2 style="color: green;">Binomial Distribution Calculator</h2>
-  <form id="binomialForm">
-    <label for="trials">Number of Trials (n):</label>
-    <input type="number" id="trials" value="10">
-    <br><br>
-    <label for="probability">Probability of Success (p):</label>
-    <input type="number" id="probability" step="0.01" value="0.5">
-    <br><br>
-    <label for="kValue">X Value (k):</label>
-    <input type="number" id="kValue" value="5">
-    <br><br>
-    <label for="binomialType">Select Calculation:</label>
-    <select id="binomialType">
-      <option value="exact">Exact (P(X = k))</option>
-      <option value="lessEqual">Less than or equal (P(X ≤ k))</option>
-      <option value="greaterEqual">Greater than or equal (P(X ≥ k))</option>
-    </select>
-    <br><br>
-    <button type="button" id="calculateBinomial">Calculate</button>
-  </form>
-  <p id="binomialResult"></p>
+      <h2 style="color: green;">Binomial Distribution Calculator</h2>
+      <form id="binomialForm">
+        <label for="trials">Number of Trials (n):</label>
+        <input type="number" id="trials" value="10">
+        <br><br>
+        <label for="probability">Probability of Success (p):</label>
+        <input type="number" id="probability" step="0.01" value="0.5">
+        <br><br>
+        <label for="kValue">X Value (k):</label>
+        <input type="number" id="kValue" value="5">
+        <br><br>
+        <label for="binomialType">Select Calculation:</label>
+        <select id="binomialType">
+          <option value="exact">Exact (P(X = k))</option>
+          <option value="lessEqual">Less than or equal (P(X ≤ k))</option>
+          <option value="greaterEqual">Greater than or equal (P(X ≥ k))</option>
+        </select>
+        <br><br>
+        <button type="button" id="calculateBinomial">Calculate</button>
+      </form>
+      <p id="binomialResult"></p>
+    </div>
 
-  <h2 style="color: purple;">Geometric Distribution Calculator</h2>
-  <form id="geometricForm">
-    <label for="geoProbability">Probability of Success (p):</label>
-    <input type="number" id="geoProbability" step="0.01" value="0.5">
-    <br><br>
-    <label for="geoXValue">X Value (k):</label>
-    <input type="number" id="geoXValue" value="1">
-    <br><br>
-    <label for="geometricType">Select Calculation:</label>
-    <select id="geometricType">
-      <option value="exact">Exact (P(X = k))</option>
-      <option value="lessEqual">Less than or equal (P(X ≤ k))</option>
-      <option value="greaterEqual">Greater than or equal (P(X ≥ k))</option>
-    </select>
-    <br><br>
-    <button type="button" id="calculateGeometric">Calculate</button>
-  </form>
-  <p id="geometricResult"></p>
-  <h2 style="color: orange;">Z-Score Calculator</h2>
-  <form id="zScoreForm">
-    <label for="zValue">X Value:</label>
-    <input type="number" id="zValue" value="0">
-    <br><br>
-    <label for="zMean">Mean (μ):</label>
-    <input type="number" id="zMean" value="0">
-    <br><br>
-    <label for="zStdDev">Standard Deviation (σ):</label>
-    <input type="number" id="zStdDev" value="1">
-    <br><br>
-    <button type="button" id="calculateZScore">Calculate Z-Score</button>
-  </form>
-  <p id="zScoreResult"></p>
+    <!-- Second Column -->
+    <div class="column">
+      <h2 style="color: purple;">Geometric Distribution Calculator</h2>
+      <form id="geometricForm">
+        <label for="geoProbability">Probability of Success (p):</label>
+        <input type="number" id="geoProbability" step="0.01" value="0.5">
+        <br><br>
+        <label for="geoXValue">X Value (k):</label>
+        <input type="number" id="geoXValue" value="1">
+        <br><br>
+        <label for="geometricType">Select Calculation:</label>
+        <select id="geometricType">
+          <option value="exact">Exact (P(X = k))</option>
+          <option value="lessEqual">Less than or equal (P(X ≤ k))</option>
+          <option value="greaterEqual">Greater than or equal (P(X ≥ k))</option>
+        </select>
+        <br><br>
+        <button type="button" id="calculateGeometric">Calculate</button>
+      </form>
+      <p id="geometricResult"></p>
+
+      <h2 style="color: teal;">Z-Score Calculator</h2>
+      <form id="zScoreForm">
+        <label for="zValue">X Value:</label>
+        <input type="number" id="zValue" value="0">
+        <br><br>
+        <label for="zMean">Mean (μ):</label>
+        <input type="number" id="zMean" value="0">
+        <br><br>
+        <label for="zStdDev">Standard Deviation (σ):</label>
+        <input type="number" id="zStdDev" value="1">
+        <br><br>
+        <button type="button" id="calculateZScore">Calculate Z-Score</button>
+      </form>
+      <p id="zScoreResult"></p>
+    </div>
+  </div>
   <script>
     // Error function approximation
     function erf(x) {
@@ -221,6 +230,78 @@
       const zScore = (x - mean) / stdDev;
       document.getElementById('zScoreResult').innerText = `Z-Score: ${zScore.toFixed(4)}`;
     });
+    document.getElementById("calculateZInterval").addEventListener("click", () => {
+      const sampleSize = parseFloat(document.getElementById("sampleSize").value);
+      const successes = parseFloat(document.getElementById("successes").value);
+      const confidenceLevel = parseFloat(document.getElementById("confidenceLevel").value);
+
+      if (!sampleSize || !successes || !confidenceLevel) {
+        alert("Please fill in all fields correctly.");
+        return;
+      }
+
+      const pHat = successes / sampleSize; // Proportion
+      const zValue = getZValue(confidenceLevel); // Z-Score for given confidence level
+      const marginOfError = zValue * Math.sqrt((pHat * (1 - pHat)) / sampleSize);
+
+      const lowerBound = (pHat - marginOfError).toFixed(4);
+      const upperBound = (pHat + marginOfError).toFixed(4);
+
+      document.getElementById("zIntervalResult").textContent = 
+        `Confidence Interval: (${lowerBound}, ${upperBound})`;
+    });
+
+    // Function to get Z-Score based on confidence level
+    function getZValue(confidenceLevel) {
+      const area = (1 + confidenceLevel) / 2; // Area under curve
+      return calculateZScoreFromArea(area);
+    }
+
+    // Function to calculate Z-Score from cumulative area under the curve
+    function calculateZScoreFromArea(area) {
+      const a1 = -3.969683028665376e+01;
+      const a2 = 2.209460984245205e+02;
+      const a3 = -2.759285104469687e+02;
+      const a4 = 1.383577518672690e+02;
+      const a5 = -3.066479806614716e+01;
+      const a6 = 2.506628277459239e+00;
+
+      const b1 = -5.447609879822406e+01;
+      const b2 = 1.615858368580409e+02;
+      const b3 = -1.556989798598866e+02;
+      const b4 = 6.680131188771972e+01;
+      const b5 = -1.328068155288572e+01;
+
+      const c1 = -7.784894002430293e-03;
+      const c2 = -3.223964580411365e-01;
+      const c3 = -2.400758277161838e+00;
+      const c4 = -2.549732539343734e+00;
+      const c5 = 4.374664141464968e+00;
+      const c6 = 2.938163982698783e+00;
+
+      const d1 = 7.784695709041462e-03;
+      const d2 = 3.224671290700398e-01;
+      const d3 = 2.445134137142996e+00;
+      const d4 = 3.754408661907416e+00;
+
+      const pLow = 0.02425;
+      const pHigh = 1 - pLow;
+
+      if (area < pLow) {
+        const q = Math.sqrt(-2 * Math.log(area));
+        return (((((c1 * q + c2) * q + c3) * q + c4) * q + c5) * q + c6) /
+               ((((d1 * q + d2) * q + d3) * q + d4) * q + 1);
+      } else if (area <= pHigh) {
+        const q = area - 0.5;
+        const r = q * q;
+        return (((((a1 * r + a2) * r + a3) * r + a4) * r + a5) * r + a6) * q /
+               (((((b1 * r + b2) * r + b3) * r + b4) * r + b5) * r + 1);
+      } else {
+        const q = Math.sqrt(-2 * Math.log(1 - area));
+        return -(((((c1 * q + c2) * q + c3) * q + c4) * q + c5) * q + c6) /
+               ((((d1 * q + d2) * q + d3) * q + d4) * q + 1);
+      }
+    }
 
   </script>
 </body>
