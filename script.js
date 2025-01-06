@@ -219,3 +219,18 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     }
 //Akanksh
+    const image = document.getElementById("image");
+
+    // When space bar is pressed down
+    window.addEventListener("keydown", (e) => {
+      if (e.code === "Space") {
+        image.style.display = "block";  // Show the image
+      }
+    });
+
+    // When space bar is released
+    window.addEventListener("keyup", (e) => {
+      if (e.code === "Space") {
+        image.style.display = "none";  // Hide the image
+      }
+    });
