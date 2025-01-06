@@ -9,6 +9,16 @@
   <p>An App by the one and only ssloke420.</p>
   <p>Dedicated to the one and only Vincent Li.</p>
   <br>
+    <label for="test-select">Choose a test:</label>
+  <select id="test-select">
+    <option value="normal">Normal Distribution Tail Calculator</option>
+    <option value="binomial">Binomial Distribution Calculator</option>
+    <option value="geometric">Geometric Distribution Calculator</option>
+    <option value="zScore">Z-Score Calculator</option>
+    <option value="zInterval">One-Proportion Z-Interval</option>
+  </select>
+  <br><br>
+    <div id="normal" class="test-container">
       <h2 style="color: blue;">Normal Distribution Tail Calculator</h2>
       <form id="cdfForm">
         <label for="mean">Mean (μ):</label>
@@ -23,6 +33,7 @@
           <option value="right">Right Tail (P(X > x))</option>
           <option value="between">Between (P(a ≤ X ≤ b))</option>
         </select>
+        <div></div>
         <br><br>
         <div id="singleValueInput">
           <label for="value">X Value:</label>
@@ -39,7 +50,8 @@
         <button type="button" id="calculateButton">Calculate</button>
       </form>
       <p id="result"></p>
-
+    </div>
+    <div id="binomial" class="test-container">
       <h2 style="color: green;">Binomial Distribution Calculator</h2>
       <form id="binomialForm">
         <label for="trials">Number of Trials (n):</label>
@@ -62,6 +74,7 @@
       </form>
       <p id="binomialResult"></p>
     </div>
+    <div id="geometric" class="test-container">
       <h2 style="color: purple;">Geometric Distribution Calculator</h2>
       <form id="geometricForm">
         <label for="geoProbability">Probability of Success (p):</label>
@@ -80,7 +93,8 @@
         <button type="button" id="calculateGeometric">Calculate</button>
       </form>
       <p id="geometricResult"></p>
-
+    </div>
+    <div id="zScore" class="test-container">
       <h2 style="color: orange;">Z-Score Calculator</h2>
       <form id="zScoreForm">
         <label for="zValue">X Value:</label>
@@ -95,6 +109,8 @@
         <button type="button" id="calculateZScore">Calculate Z-Score</button>
       </form>
       <p id="zScoreResult"></p>
+    </div>
+    <div id="zInterval" class="test-container">
          <h2 style="color: teal;">One-Proportion Z-Interval</h2>
         <form id="zIntervalForm">
           <label for="sampleSize">Sample Size (n):</label>
@@ -109,6 +125,7 @@
           <button type="button" id="calculateZInterval">Calculate</button>
         </form>
         <p id="zIntervalResult"></p>
+    </div>
   <script src="script.js"></script>
 </body>
   <!---Jason--- Abhinav --->
