@@ -2,10 +2,11 @@ document.addEventListener("DOMContentLoaded", () => {
   const testSelect = document.getElementById("test-select");
   const containers = document.querySelectorAll(".test-container");
 
+  // When the dropdown changes, show the selected test and hide others
   testSelect.addEventListener("change", () => {
     const selectedTest = testSelect.value;
-
-    // Hide all containers and show only the selected one
+    console.log("Jason");
+    // Hide all containers and show the selected one
     containers.forEach(container => {
       container.classList.remove("active");
       if (container.id === selectedTest) {
@@ -18,6 +19,7 @@ document.addEventListener("DOMContentLoaded", () => {
   testSelect.value = "normal";
   testSelect.dispatchEvent(new Event("change"));
 });
+
 
     function erf(x) {
       const sign = x < 0 ? -1 : 1;
