@@ -1,3 +1,23 @@
+document.addEventListener("DOMContentLoaded", () => {
+  const testSelect = document.getElementById("test-select");
+  const containers = document.querySelectorAll(".test-container");
+
+  testSelect.addEventListener("change", () => {
+    const selectedTest = testSelect.value;
+
+    // Hide all containers and show only the selected one
+    containers.forEach(container => {
+      container.classList.remove("active");
+      if (container.id === selectedTest) {
+        container.classList.add("active");
+      }
+    });
+  });
+
+  // Set the default test to display (optional)
+  testSelect.value = "normal";
+  testSelect.dispatchEvent(new Event("change"));
+});
 
     function erf(x) {
       const sign = x < 0 ? -1 : 1;
